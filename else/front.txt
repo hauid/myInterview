@@ -1,0 +1,79 @@
+# HTML
+
+用于定义网页的结构和内容。它通过标签来组织元素，例如标题、段落、图像和链接。可以将HTML比作网页的骨架
+
+# CSS
+
+用于控制网页的样式和布局。它定义了HTML元素的外观，包括颜色、字体、边距和位置。可以将CSS比作网页的衣服
+
+HTML:
+
+```html
+<p>标签代表Paragraph 对象
+<span> 标签是一个行内容器，用于标记文本的一部分，或文档的一部分
+<meta> 标签定义关于 HTML 文档的元数据。元数据是关于数据的数据（信息）。
+<meta> 标签始终位于 <head> 元素 内，通常用于指定字符集、页面描述、关键词、文档作者和视口设置,元数据不会显示在页面上，但可以被机器解析
+<h1> 到 <h6> 标签用于定义 HTML 标题。
+<h1> 定义最重要的标题。<h6> 定义最不重要的标题
+<div> 标签定义 HTML 文档中的分割或部分（分区或小节，division/section）。
+<div> 标签可以把文档分割为独立的、不同的部分。它可以用作严格的组织工具，并且不使用任何格式与其关联。任何类型的内容都可以放在 <div> 标签内
+<tr> 标签定义 HTML 表格中的行。 <tr> 元素包含一个或多个 <th> 或 <td> 元素。
+HTML 表格有两种单元格：
+标题单元格 - 包含标题信息（使用 <th> 元素创建）
+数据单元格 - 包含数据（使用 <td> 元素创建）
+<a> 标签定义超链接，用于从一张页面链接到另一张页面。<a> 元素最重要的属性是 href 属性，它指示链接的目的地。
+```
+
+# 常用标准属性:
+
+获取DOM对象
+let h1 = document.querySelector('#title1');
+let h1 = document.querySelector('h1'); // 获取第一个h1标签
+let hs = document.querySelectorAll('h1')
+调用DOM对象中属性或方法
+ innerHTML
+
+CSS
+
+颜色<p style="background-color:Tomato;">China is a great country!</p>
+
+DOM:文档对象模型
+DOM的核心思想：将网页的内容当做对象来处理，标签的所有属性在该对象上都可以找到，并且修改这个对象的属性，就会自动映射到标签身上。
+JS通过DOM来改变HTML和元素的CSS
+常用事件:
+mouseenter	当指针移动到元素上时，发生此事件。	
+mouseleave	当指针从元素上移出时，发生此事件
+keydown	当用户正在按下键时，发生此事件。	KeyboardEvent
+keypress	当用户按下键时，发生此事件。		KeyboardEvent
+keyup	当用户松开键时，发生此事件。		KeyboardEvent
+
+
+Vue
+Vue 的两个核心功能：
+声明式渲染：Vue 基于标准 HTML 拓展了一套模板语法，使得我们可以声明式地描述最终输出的 HTML 和 JavaScript 状态之间的关系。
+响应性：Vue 会自动跟踪 JavaScript 状态并在其发生变化时响应式地更新 DOM。
+1). 准备工作：
+- 准备一个html文件，并在其中引入Vue模块 （参考官方文档，复制过来即可）【注意：模块化的js，引入时，需要设置 type="module"】
+- 创建Vue程序的应用实例，控制视图的元素
+- 准备元素（div),交给Vue控制
+2). 数据驱动视图：
+- 准备数据。 在创建Vue应用实例的时候，传入了一个js对象，在这个js对象中，我们要定义一个data方法，这个data方法的返回值就是Vue中的数据。
+v-for,v-bind,v-if/else-if,v-show,v-model:表单数据双向绑定,v-on:绑定事件
+
+添加到 Model 中的数据会成为视图模板中的变量
+model.addAttribute("train", train);
+视图文件 bookTicket.html 可以通过 ${train} 访问 train 对象的属性
+
+
+上传文件的原始form表单，要求表单必须具备以下三点（上传文件页面三要素）：
+- 表单必须有file域，用于选择要上传的文件
+- 表单提交方式必须为POST：通常上传的文件会比较大，所以需要使用 POST 提交方式
+- 表单的编码类型enctype必须要设置为：multipart/form-data：普通默认的编码格式是不适合传输大型的二进制数据的，所以在文件上传时，表单的编码格式必须设置为multipart/form-data
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        姓名: <input type="text" name="username"><br>
+        年龄: <input type="text" name="age"><br>
+        头像: <input type="file" name="file"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
