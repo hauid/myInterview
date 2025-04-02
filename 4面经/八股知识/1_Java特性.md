@@ -294,35 +294,7 @@ contains() -  如果列表包含指定的元素，则返回true
 
 
 
- //3
 
-### 设计原则
-
-**1开放封闭原则**：对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。(主要的)
-
-**2单一职责原则**：一个类、接口或方法只负责一个职责，降低代码复杂度以及变更引起的风险。		(**接口功能隔离**)
-
-**3依赖倒置原则**：针对接口编程，依赖于抽象类或接口而不依赖于具体实现类。									(**设计接口**)
-
-**4接口隔离原则**：将不同功能定义在不同接口中实现接口隔离。																(**接口隔离**)
-
-**5里氏替换原则**：任何基类可以出现的地方，子类一定可以出现。															(**子类替换**)
-
-**6迪米特原则**：每个模块对其他模块都要尽可能少地了解和依赖，降低代码耦合度。							**(分模块)**
-
-**7合成复用原则**：尽量使用组合(has-a)/聚合(contains-a)而不是继承(is-a)达到软件复用的目的。		(**聚合**)
-
-
-
-#### 设计模式
-
-三大类：
-
-**创建型模式**，共五种：工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式。
-
-**结构型模式**，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。
-
-**行为型模式**，共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。
 
 
 
@@ -533,12 +505,98 @@ JVM通过**虚方法表（vtable）**动态查找实际对象的方法实现。(
 通过反射机制可以操作代码片段。（**class文件**）
 
 使得**程序在运行时候反观和修改其内部结构**,**动态的操作类和对象**
-获得class对象的方法
 
-**1.静态引用获得class对象,不触发静态初始化**
+
+
+#### 获得class对象的方法
+
+**1.静态引用获得class对象,不触发静态初始化**	
+
+这种方法只适合在编译前就知道操作的 Class。
+
+```java
+Class clz = String.class;
+```
 
 **2.实例对象调用getClass方法**
-**3.调用Class的forName方法**
+
+```java
+String str = new String("Hello");
+Class clz = str.getClass();
+
+```
+
+**3.调用Class的forName方法**			**Class.forName 静态方法**
+
+```java
+Class clz = Class.forName("java.lang.String");
+```
+
+
+
+
+
+#### 通过反射创建类对象
+
+通过反射创建类对象主要有两种方式：通过 Class 对象的 newInstance() 方法、通过 Constructor 对象的 newInstance() 方法。
+
+第一种：通过 Class 对象的 **newInstance()** 方法。
+
+```java
+Class clz = Apple.class;
+Apple apple = (Apple)clz.newInstance();
+```
+
+第二种：通过 Constructor 对象的 **newInstance()** 方法
+
+```delphi
+Class clz = Apple.class;
+Constructor constructor = clz.getConstructor();
+Apple apple = (Apple)constructor.newInstance();
+```
+
+通过 Constructor 对象创建类对象可以选择特定构造方法，而通过 Class 对象则只能使用默认的无参数构造方法。下面的代码就调用了一个有参数的构造方法进行了类对象的初始化。
+
+```kotlin
+Class clz = Apple.class;
+Constructor constructor = clz.getConstructor(String.class, int.class);
+Apple apple = (Apple)constructor.newInstance("红富士", 15);
+```
+
+
+
+
+
+
+
+### Java8
+
+#### Stream流
+
+<img src="C:\Users\pqy\AppData\Roaming\Typora\typora-user-images\image-20250331003816000.png" alt="image-20250331003816000" style="zoom:50%;" />
+
+
+
+<img src="C:\Users\pqy\AppData\Roaming\Typora\typora-user-images\image-20250331004325822.png" alt="image-20250331004325822" style="zoom: 40%;" />
+
+**特性**
+
+- 延迟:只在执行终结方法时才执行
+- 不改变原数据源
+- 管道拿数据,不存储数据
+- 可并行
+
+**区别**
+
+<img src="C:\Users\pqy\AppData\Roaming\Typora\typora-user-images\image-20250331004614811.png" alt="image-20250331004614811" style="zoom:40%;" />
+
+
+
+
+
+
+
+
 
 
 
@@ -579,7 +637,7 @@ TestClass.staticMethod();
 
 
 
-这是因为在首次访问类的静态方法之前，**类需要被加载和初始化**，包括执行静态初始化块。
+这是因为在**首次访问类的静态方法**之前，**类需要被加载和初始化**，包括执行静态初始化块。
 
 如果之后你创建一个类的实例：
 
@@ -591,7 +649,5 @@ new TestClass();
 ```
 
 请注意，静态初始化块不会再次执行，因为类已经在**之前被加载过了**。
-
-### 
 
 ​	可以使用静态初始化块来执行类加载时的初始化任务。这种静态初始化块在类首次被加载到JVM时自动执行一次。
