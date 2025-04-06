@@ -2,8 +2,6 @@
 
 javap -v [类名]  查看字节码文件的信息
 
-
-
 #### 变量分类
 
 变量分为
@@ -63,8 +61,6 @@ public class TestVariable{
 
 
 **常见问题**
-
-
 
 ![image-20250313213314402](C:\Users\pqy\AppData\Roaming\Typora\typora-user-images\image-20250313213314402.png)
 
@@ -164,8 +160,6 @@ Method Area同样是线程共享的区域,**Java8后称为元空间,存放在本
 - 创建class类的实例,表示该类型,class对象放在堆中.作为方法区这个类的各种数据的**访问入口**
 
 ​		<img src="C:\Users\pqy\AppData\Roaming\Typora\typora-user-images\image-20250313211510217.png" alt="image-20250313211510217" style="zoom:67%;" />
-
-
 
 
 

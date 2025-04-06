@@ -1,5 +1,19 @@
 ### SpringBoot
 
+
+
+#### 不需要sevrlet作为底层的方式
+
+
+
+**Play Framework**：
+
+- Play Framework 是一个现代的Web框架，它支持Java和Scala。它不需要开发者显式地编写Servlet，而是通过基于路由的方式来映射请求，简化了Web应用的开发过程。Play也内嵌了**Web服务器（如Netty）**，无需外部Servlet容器。
+
+
+
+
+
 #### IOC
 
 **控制反转（Inversion of Control）是软件工程中的一项原则**，它将对象或程序部分的控制权转移到容器或框架中。在面向对象的编程中经常使用

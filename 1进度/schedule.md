@@ -10,12 +10,6 @@
 
 
 
-**填写:**
-
-**多益网络2025届校招网申邀请【推荐站点-推荐码：DCRQV】	**		==3.8today done==
-
-
-
 
 
 
@@ -496,4 +490,35 @@ https://exam.nowcoder.com/cts/17440584/summary?id=4799CFDFBF2FD6825D2B1AAD67C4DC
 2025年03月29日 周六 09:10后失效。请抓紧时间完成笔试。
 
 **DDL:03月29 09:10**
+
+==鸽==
+
+
+
+**雪球**
+
+**DDL:3.31周一下午2点**
+
+==done==
+
+
+
+**云简业财**
+
+会议链接：https://work.weixin.qq.com/webapp/tm/J16RSkfdB34
+会议号：753-175-426
+
+**DDL:04/02周三11:00-12:00**
+
+==done==
+
+
+
+**杭州图尔兹信息技**
+
+面试链接  https://meeting.tencent.com/dm/e2j41MMajG4
+
+**DDL:4.2周三下午四点**
+
+==done==
 
